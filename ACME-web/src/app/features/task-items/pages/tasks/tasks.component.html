@@ -1,0 +1,100 @@
+<header class="app-header">
+  <div class="logo">
+    <h1>ACME</h1>
+  </div>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</header>
+
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+
+      <h1>My Tasks</h1>
+
+      <div class="header-actions">
+        <button class="new-task-btn" routerLink="/tasks/create">
+          + New Task
+        </button>
+      </div>
+
+    </div>
+
+    <div class="filters">
+
+      <div class="filter-group">
+        <label>Status</label>
+        <select #statusSel (change)="setStatusFilter(statusSel.value)">
+          <option value="All">All</option>
+          <option value="Pending">Pending</option>
+          <option value="InProgress">InProgress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Category</label>
+        <select #catSel (change)="setCategoryFilter(catSel.value)">
+          <option value="All">All</option>
+          <option *ngFor="let c of categories$ | async" [value]="c.id">
+            {{ c.name }}
+          </option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <div class="container">
+
+      <ng-container *ngIf="filteredTasks$ | async as tasks; else loading">
+
+        <div *ngIf="tasks.length === 0">
+          No tasks found
+        </div>
+
+        <div class="task-grid">
+
+          <div class="task-card" *ngFor="let task of tasks">
+
+            <h3>{{ task.title }}</h3>
+
+            <p>{{ task.description }}</p>
+
+            <div class="meta-row">
+
+              <span class="category" *ngIf="task.taskCategoryName">
+                <lucide-icon [img]="folderIcon" size="12"></lucide-icon>
+                {{ task.taskCategoryName }}
+              </span>
+
+              <span [ngClass]="getStatusClass(task.status)" class="status-badge">
+                <lucide-icon
+                  [img]="getStatusIcon(task.status)"
+                  [size]="12">
+                </lucide-icon>
+                {{ task.status }}
+              </span>
+
+            </div>
+
+            <div class="actions">
+              <button [routerLink]="['/tasks', task.id, 'edit']">Edit</button>
+              <button (click)="deleteTask(task.id)" class="delete">Delete</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </ng-container>
+
+
+
+
+      <ng-template #loading>
+        <p>Loading tasks...</p>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

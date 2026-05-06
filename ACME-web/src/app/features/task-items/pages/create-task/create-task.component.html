@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="card">
+
+    <h2>Create Task</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <input
+        type="text"
+        placeholder="Title"
+        formControlName="title"
+      />
+
+      <textarea
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+
+      <input
+        type="date"
+        formControlName="dueDate"
+      />
+
+      <select formControlName="taskCategoryId">
+        <option [ngValue]="null">No category</option>
+        <option *ngFor="let cat of categories$ | async" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Saving...' : 'Create Task' }}
+      </button>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+    </form>
+
+  </div>
+
+</div>

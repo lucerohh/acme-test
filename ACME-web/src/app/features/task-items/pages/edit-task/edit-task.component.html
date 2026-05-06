@@ -1,0 +1,46 @@
+<div class="container">
+
+  <ng-container *ngIf="task$ | async as task; else loadingTpl">
+
+    <div class="card">
+
+      <h2>Edit Task</h2>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <input type="text" formControlName="title" placeholder="Title" />
+
+        <textarea formControlName="description" placeholder="Description"></textarea>
+
+        <input type="date" formControlName="dueDate" />
+
+        <select formControlName="status">
+          <option value="Pending">Pending</option>
+          <option value="InProgress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+
+        <select formControlName="taskCategoryId">
+          <option [ngValue]="null">No category</option>
+          <option *ngFor="let cat of categories$ | async" [value]="cat.id">
+            {{ cat.name }}
+          </option>
+        </select>
+
+        <button type="submit" [disabled]="saving">
+          {{ saving ? 'Saving...' : 'Update Task' }}
+        </button>
+
+        <p class="error" *ngIf="error">{{ error }}</p>
+
+      </form>
+
+    </div>
+
+  </ng-container>
+
+  <ng-template #loadingTpl>
+    <p>Loading task...</p>
+  </ng-template>
+
+</div>

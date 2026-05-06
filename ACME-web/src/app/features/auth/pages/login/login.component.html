@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card">
+
+    <h1>ACME</h1>
+    <p>Sign in to continue</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <input type="email" placeholder="Email" formControlName="email" />
+
+      <input type="password" placeholder="Password" formControlName="password" />
+
+      <button type="submit" [disabled]="loading || form.invalid">
+        {{ loading ? 'Loading...' : 'Login' }}
+      </button>
+
+      <p class="error" *ngIf="error && !loading">{{ error }}</p>
+
+      <p class="link" (click)="goToRegister()">Don't have an account? <span>Sign up</span></p>
+
+    </form>
+
+  </div>
+</div>
