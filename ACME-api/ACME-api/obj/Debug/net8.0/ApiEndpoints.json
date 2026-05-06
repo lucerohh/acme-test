@@ -1,0 +1,359 @@
+[
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "api/v1/auth/signin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resource",
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Auth.SignInRequestResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Auth.SignInResponseResource",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "authentication"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.AuthController",
+    "Method": "SignUp",
+    "RelativePath": "api/v1/auth/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resource",
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Auth.SignUpRequestResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Auth.SignUpResponseResource",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "authentication"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TaskCategoryController",
+    "Method": "Create",
+    "RelativePath": "api/v1/task-categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resource",
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.TaskCategories.CreateTaskCategoryResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "task-categories"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TaskCategoryController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/task-categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ACME_api.ACME.Interfaces.Rest.Resources.TaskCategories.TaskCategoryResource, ACME-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "task-categories"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TaskCategoryController",
+    "Method": "DeleteTaskCategory",
+    "RelativePath": "api/v1/task-categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-categories"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TasksController",
+    "Method": "GetTasks",
+    "RelativePath": "api/v1/task-items",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ACME_api.ACME.Interfaces.Rest.Resources.Task.TaskItemResource, ACME-api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-items"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TasksController",
+    "Method": "CreateTask",
+    "RelativePath": "api/v1/task-items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resource",
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.TaskItems.CreateTaskItemResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Task.TaskItemResource",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-items"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TasksController",
+    "Method": "UpdateTask",
+    "RelativePath": "api/v1/task-items/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "resource",
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.TaskItems.UpdateTaskItemResource",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Task.TaskItemResource",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-items"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TasksController",
+    "Method": "DeleteTask",
+    "RelativePath": "api/v1/task-items/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-items"
+    ]
+  },
+  {
+    "ContainingType": "ACME_api.ACME.Interfaces.Rest.TasksController",
+    "Method": "GetTaskById",
+    "RelativePath": "api/v1/task-items/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ACME_api.ACME.Interfaces.Rest.Resources.Task.TaskItemResource",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 403
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 401
+      }
+    ],
+    "Tags": [
+      "task-items"
+    ]
+  }
+]
